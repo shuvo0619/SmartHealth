@@ -1,0 +1,443 @@
+﻿@using System.Diagnostics
+@using System.Text.RegularExpressions
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Smart Health</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Libraries CSS Files -->
+    <link href="~/Content/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Main Stylesheet File -->
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/myStyle.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!------for video calling----->
+    <!------end video calling------>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container">
+            <div class="col-md-12">
+                <nav id="nav-menu-container">
+                    <div class="col-md-10">
+                        <ul class="nav-menu pull-right">
+
+                            <li>
+                                @Html.ActionLink("Home", "Index", "Home", null, new { })
+
+                            </li>
+                            <li><a href="#about">About Us</a></li>
+
+                            <li><a href="#contact">Contact Us</a></li>
+
+                            @if (HttpContext.Current.Session["UserId"] != null && HttpContext.Current.Session["UserId"] != "")
+                            {
+
+                                var Id = Session["UserId"];
+                                var roleId = Session["RoleId"];
+                                var status = Session["Status"];
+                                int UserId = Convert.ToInt32(Id);
+                                int RoleId = Convert.ToInt32(roleId);
+                                if (RoleId == 1)
+                                {
+                                    <li>@Html.ActionLink("Profile", "Index", "Doctor", new { @UserId = UserId, @status = status }, null)</li>
+                                @*<li>
+                                    <a href=@Url.Action("Video", "Home") target="_blank">
+                                        Video conference
+                                    </a>
+                                </li>*@    
+                                <li>
+                                        <a href="http://localhost/fffff" target="_blank">Video Conference</a>
+                                    </li>
+                                }
+                                else if (RoleId == 2)
+                                {
+                                    <li>@Html.ActionLink("Profile", "PatientProfile", "Patient", new { @UserId = UserId }, null)</li>
+                                    <li>@Html.ActionLink("Find Doctor", "FindDoctor", "Doctor")</li>
+                                    <li>@Html.ActionLink("Map", "", ""@*, new { status = Model.DoctorStatus}*@)</li>
+                                    <li>@Html.ActionLink("Recommendation", "Recommendation", "Patient", new { @UserId = UserId }, null)</li>
+                                }
+
+                                <li>
+                                    @Html.ActionLink("Logout", "LogOut", "UserRole", null, new { })
+                                </li>
+                                <li style="color: white; padding-top: 2.5%">
+                                    @Session["UserName"]
+                                </li>
+
+                            }
+                            else
+                            {
+                                <li>
+                                    @Html.ActionLink("Login", "Login", "UserRole", null, new { })
+                                </li>
+
+
+                                <li>
+                                    @Html.ActionLink("Registration", "GetRole", "UserRole", null, new { })
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        @if (HttpContext.Current.Session["UserId"] != null && HttpContext.Current.Session["UserId"] != "")
+                        {
+                            @*<a href="#" id="notificationLink"><span class="noti glyphicon glyphicon-bell" id="notification"><span class="count" id="unseenCount">&nbsp;</span></span></a>*@
+
+                            @*<ul class="nav navbar-nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="noti glyphicon glyphicon-bell" id="notification"><span class="count" id="unseenCount">&nbsp;</span></span></a>
+                                        <ul class="dropdown-menu">
+                                            jlfgjlf
+                                        </ul>
+                                    </li>
+                                </ul>*@
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <div id="autoRefresDiv">
+                                <span class="noti glyphicon glyphicon-bell" id="notification">
+                                    <span class="count" id="unseenCount">&nbsp;</span>
+                                </span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" id="messageList">
+                        </ul>
+                    </div>
+
+                        }
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+
+    <div class="container body-content" style="min-height : 550px;">
+        @RenderBody()
+    </div>
+
+
+
+    <footer class="site-footer">
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-xs-12 text-lg-left text-center">
+                        <p class="copyright-text">
+                            @@Smart Health
+                        </p>
+
+                    </div>
+
+                    <div class="col-lg-6 col-xs-12 text-lg-right text-center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="index.html">Home</a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="#about">About Us</a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="#features">Features</a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="#portfolio">Portfolio</a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="#team">Team</a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @*<script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+
+    <script src="~/signalr/hubs"></script>*@
+
+    @* Add Jquery Library *@
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    @*<script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="/signalr/hubs"></script>*@
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style type="text/css">
+        /*Added css for design notification area, you can design by your self*/
+        /* COPY css content from youtube video description*/
+        .noti-content {
+            position: fixed;
+            right: 100px;
+            background: #e5e5e5;
+            border-radius: 4px;
+            top: 47px;
+            width: 250px;
+            display: none;
+            border: 1px solid #9E988B;
+            cursor: pointer;
+        }
+        ul.dropdown-menu{
+            max-height:200px;
+            overflow:auto;
+            padding:0px;
+            margin:0px;
+            padding-left:20px;
+        }
+        ul.dropdown-menu li {
+                margin:3px;
+                padding:6px;
+                background:#fff;
+            }
+        ul#notiContent {
+            max-height: 200px;
+            overflow: auto;
+            padding: 0px;
+            margin: 0px;
+            padding-left: 20px;
+            cursor: pointer;
+        }
+
+            ul#notiContent li {
+                margin: 3px;
+                padding: 6px;
+                background: #fff;
+            }
+
+        .noti-top-arrow {
+            border-color: transparent;
+            border-bottom-color: #F5DEB3;
+            border-style: dashed dashed solid;
+            border-width: 0 8.5px 8.5px;
+            position: absolute;
+            right: 32px;
+            top: -8px;
+            cursor: pointer;
+        }
+
+        span.noti {
+            color: #ffffff;
+            margin: 2%;
+            position: absolute;
+            left: 20px;
+            padding-top: 19px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        span.count {
+            position: relative;
+            top: -3px;
+            right : 16px;
+        }
+
+        #messageList{
+            margin-top : 31%;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '@Url.Action("GetCountMessage", "Message")',
+            dataType: 'json',
+            success: function (data) {
+                $('#unseenCount').html(data);
+
+            }
+        });
+        $('#notification').click(function () {
+            $.ajax({
+                url: '@Url.Action("GetAllMessage", "Message")',
+                dataType: 'json',
+                success: function (data) {
+                    //$('.dropdown-menu').html('<li>' + data.MessageBody + '</li>');
+                    const dom = document.getElementById('messageList');
+                    for (var i = 0; i < data.length; i++) {
+                        const child = document.createElement('li');
+                        const link = document.createElement('a');
+                        link.textContent = data[i].MessageBody;
+                        //link.href = "/Message/SendMessage/" + data[i].CurrentId+ "null";
+
+                        var hrefLink = '@Url.Action("SendMessage", "Message", new { UserId = "data[i].CurrentId" }, null)';
+                        var UserId = data[i].CurrentId;
+                        link.setAttribute('href', hrefLink.replace('data[i].CurrentId', UserId));
+
+                        child.appendChild(link);
+                        dom.appendChild(child);                       
+                    }
+                    console.log(data);
+                }
+
+            });
+
+        });
+
+            setInterval(function () {
+                $('#autoRefresDiv');
+            }, 1000);
+        });
+
+    </script>
+
+
+
+
+    @* Add jquery code for Get Notification & setup signalr *@
+    @*<script type="text/javascript">
+            $(function () {
+
+                $('span.noti').click(function (e) {
+                    e.stopPropagation();
+                    $('.noti-content').show();
+                    var count = 0;
+                    count = parseInt($('span.count').html()) || 0;
+
+                    if (count > 0) {
+                        updateNotification();
+                    }
+                    $('span.count', this).html('&nbsp;');
+                })
+
+                $('html').click(function () {
+                    $('.noti-content').hide();
+                })
+
+                function updateNotification() {
+                    $('#notiContent').empty();
+                    $('#notiContent').append($('<li>Loading...</li>'));
+                    $.ajax({
+                        type: 'GET',
+                        url: '/message/GetNotificationContacts',
+                        success: function (response) {
+                            $('#notiContent').empty();
+                            if (response.length == 0) {
+                                $('#notiContent').append($('<li>No data available</li>'));
+                            }
+                            $.each(response, function (index, value) {
+                                $('#notiContent').append($('<li>New contact : ' + value.MessageBody + ' (' + value.UserId + ') added</li>'));
+                            });
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    })
+                }
+
+                function updateNotificationCount() {
+                    var count = 0;
+                    count = parseInt($('span.count').html()) || 0;
+                    count++;
+                    $('span.count').html(count);
+                }
+
+                var notificationHub = $.connection.notificationHub;
+                $.connection.hub.start().done(function () {
+                    console.log('Notification hub started');
+                });
+
+                notificationHub.client.notify = function (message) {
+                    if (message && message.toLowerCase() == "added") {
+                        updateNotificationCount();
+                    }
+                }
+            })
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#receiveMessage').hide();
+                var Id = $('#UserId').val();
+                var CurrentId = @Session["UserId"];
+                if(Id == CurrentId)
+                {
+                    window.alert($('receiveMessage').show());
+                }
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $("#receiveMessage").remove();
+                $.ajax
+                ({
+                    type: 'POST',
+                    url: '@Url.Action("RevceiveMessage")',
+                    dataType: 'json',
+                    data: {},
+                    success: function(data)
+                    {
+                        $("#imgLoading").hide();
+                        var items = '';
+
+                    },
+                    error: function(ex)
+                    {
+                        var r = jQuery.parseJSON(response.responseText);
+                        alert("Message: " + r.Message);
+                    }
+                });
+                return false;
+            });
+        </script>*@
+
+</body>
+</html>

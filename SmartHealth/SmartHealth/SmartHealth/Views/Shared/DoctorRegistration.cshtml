@@ -1,0 +1,21 @@
+﻿@model SmartHealth.Model.Models.Doctor
+
+<div class="form-group">
+    <div class="col-md-12">
+        @Html.EditorFor(model => model.Designation, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "Designation", placeholder = "Designation*", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.Designation)
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-12">
+        @Html.EditorFor(model => model.UniversityName, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "univName", placeholder = "College/University name*", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.UniversityName)
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-12">
+        @Html.EditorFor(model => model.Speciality, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "Speciality", placeholder = "Speciality*", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.Speciality)
+    </div>
+</div>
+

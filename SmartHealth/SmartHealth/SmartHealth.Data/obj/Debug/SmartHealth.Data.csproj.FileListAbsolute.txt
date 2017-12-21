@@ -1,0 +1,88 @@
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\SmartHealth.Data.dll.config
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\SmartHealth.Data.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\SmartHealth.Data.pdb
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\EntityFramework.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\EntityFramework.SqlServer.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Web.Infrastructure.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.Helpers.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.Mvc.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.Razor.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.Deployment.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.Razor.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\EntityFramework.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\EntityFramework.SqlServer.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.Helpers.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.Mvc.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.Razor.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.Deployment.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.Razor.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.csprojResolveAssemblyReference.cache
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.pdb
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\SmartHealth.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\SmartHealth.Model.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\SmartHealth.Service.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.Optimization.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Owin.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.Security.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Newtonsoft.Json.dll
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\SmartHealth.Model.pdb
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\SmartHealth.Service.pdb
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\SmartHealth.pdb
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\System.Web.Optimization.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.Security.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\shuvo\documents\visual studio 2013\Projects\SmartHealth\SmartHealth.Data\bin\Microsoft.Owin.Security.OAuth.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\SmartHealth.Data.dll.config
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\SmartHealth.Data.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\SmartHealth.Data.pdb
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\EntityFramework.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\EntityFramework.SqlServer.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.Core.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\Microsoft.Web.Infrastructure.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\SmartHealth.Model.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.Helpers.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.Mvc.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.Razor.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.Deployment.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.Razor.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\SmartHealth.Model.pdb
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\EntityFramework.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\EntityFramework.SqlServer.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.Core.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.Helpers.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.Mvc.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.Razor.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.Deployment.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\bin\System.Web.WebPages.Razor.xml
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.csprojResolveAssemblyReference.cache
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.Migrations.UpdatedUserTable.resources
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.Migrations.HospitalNew.resources
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.Migrations.Doctor.resources
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.Migrations.patient.resources
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.Migrations.connections.resources
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.Migrations.message.resources
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.Migrations.messageUpdate.resources
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.csproj.GenerateResource.Cache
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.dll
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.pdb
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.Migrations.messageUpdateLast.resources
+D:\8th Semester\SPL-3\SmartHealth\SmartHealth\SmartHealth.Data\obj\Debug\SmartHealth.Data.Migrations.messageSeenOrUnseen.resources

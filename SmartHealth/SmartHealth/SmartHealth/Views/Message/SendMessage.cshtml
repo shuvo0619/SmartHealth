@@ -1,0 +1,83 @@
+﻿@model SmartHealth.Model.Models.Message
+@*@model SmartHealth.Views.ViewModels.MessageViewModel;*@
+
+
+@{
+    ViewBag.Title = "SendMessage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.UserId, new { id = "UserId" })
+    @Html.HiddenFor(model => model.CurrentId)
+    @Html.HiddenFor(model => model.Date)
+    <div class="container col-md-12">
+        <div class="col-md-8 col-md-offset-2" style="margin-top : 1%; border : 1px solid #eeefec; background-color : #f6f6f6; min-height : 100px;">
+
+            <div>
+                <h4>Enter message</h4>
+                <form>
+
+                    @*@Html.LabelFor(model => model.MessageBody, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div>
+                        @Html.EditorFor(model => model.MessageBody, new { htmlAttributes = new { @class = "form-control", id = "messageBody" } })
+                        @Html.ValidationMessageFor(model => model.MessageBody, "", new { @class = "text-danger" })
+                        <br />
+                        <input type="submit" value="Send Message" class="btn btn-default" id="sendMessage">
+                    </div>
+                </form>
+                <div id="receiveMessage" style="border : 1px solid #f3f3f3; margin-top : 2%;">
+                   
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th style="padding-left : 6%;">Message</th>
+                        </tr>
+                        @foreach (var msg in Model.messageList)
+                        {
+                            <tr>
+                                <td>@Model.user.FirstName</td>
+                                <td style="padding-left : 6%; width : 100%;">@msg.MessageBody</td>
+                            </tr>
+                            @*@Html.DisplayFor(model => model.messageList)*@
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$('#receiveMessage').hide();
+        $("#receiveMessage").show();
+        $("#sendMessage").click(function () {
+            var text = $("#messageBody").val();
+            if (text != null) {
+                alert("Message sent successfully")
+                //$('#receiveMessage').show();
+            }
+            else {
+
+            }
+        });
+    });
+</script>
+
+@*<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script>
+
+      var config = {
+        apiKey: "AIzaSyCqaSkRFWyBUQTwSxS9Xhdq75rOzOuRMEY",
+        authDomain: "smarthealth-298a4.firebaseapp.com",
+        databaseURL: "https://smarthealth-298a4.firebaseio.com",
+        projectId: "smarthealth-298a4",
+        storageBucket: "",
+        messagingSenderId: "828177890560"
+      };
+      firebase.initializeApp(config);
+    </script>*@

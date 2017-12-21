@@ -1,0 +1,59 @@
+﻿@model SmartHealth.Model.Models.Doctor
+
+<div>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Doctor's Information</h4>
+    </div>
+
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userAndRole.user.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userAndRole.user.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userAndRole.user.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userAndRole.user.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userAndRole.user.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userAndRole.user.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Speciality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Speciality)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.hospital.HospitalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hospital.HospitalName)
+        </dd>
+    </dl>
+</div>  
+

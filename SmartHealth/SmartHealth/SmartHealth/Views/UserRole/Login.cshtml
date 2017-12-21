@@ -1,0 +1,65 @@
+﻿@model SmartHealth.Model.Models.UserAndRole
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="container col-md-6 col-md-offset-3" id="registrationPage">
+                <h4>Login</h4>
+                <hr />
+
+                <div class="form-group">
+                    <div class="col-md-11">
+                        <label>Username<span style="color:red;">*</span></label>
+                        @Html.EditorFor(model => model.user.UserName, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "display_name", placeholder = "Enter Username", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.user.UserName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-11">
+                        <label>Password<span style="color:red;">*</span></label>
+                        @Html.EditorFor(model => model.user.Password, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "Password", placeholder = "Enter Password *", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.user.Password)
+                    </div>
+                </div>
+
+                @*<div>
+                        @Html.CheckBoxFor(model => @Model.Status, new { @id = "IsChecked", @class = "checkSingle" })
+
+                    </div>*@
+                <div class="form-group">
+                    <div class="col-md-3 col-md-offset-9">
+                        <input type="submit" value="Login" class="btn-outline-success" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".checkSingle").click(function () {
+            if ($(this).is(":checked")) {
+
+            }
+        });
+    });
+    </script>
+
+
+
+</body>

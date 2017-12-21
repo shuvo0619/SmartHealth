@@ -1,0 +1,28 @@
+﻿@model SmartHealth.Model.Models.Doctor
+
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div class="container col-md-12">
+        <div class="">
+
+        </div>
+        <div class="col-md-6 col-md-offset-2" id="PatientProfile">
+            @Model.userAndRole.user.FirstName @Model.userAndRole.user.LastName </br>
+            @Model.userAndRole.user.UserName </br>
+            @Model.Designation </br>
+            @Model.Speciality </br>
+            @Model.hospital.HospitalName </br>
+            <div class="navbar-right">
+                <a href='@Url.Action("Edit", "Doctor", new { id = Model.DoctorId })' class="btn btn-info btn-lg">
+                    <span class="glyphicon glyphicon-edit"></span>Edit
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+

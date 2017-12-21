@@ -1,0 +1,59 @@
+﻿@*@model SmartHealth.Views.ViewModels.UserProfile*@
+@model SmartHealth.Model.Models.UserAuthentication
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+    @if (HttpContext.Current.Session["UserId"] != null && HttpContext.Current.Session["UserId"] != "")
+    {
+        <div class="container col-md-12">
+            <div class="col-md-10">
+                <h3>Welcome Doctor</h3>
+            </div>
+            <div class="col-md-2">
+                <p>
+                    <b>@Session["FirstName"]</b>
+                    <b>@Session["LastName"]</b>
+                </p>
+            </div>
+            <div class="col-md-2">
+                
+                    @if (Session["Status"].Equals("true"))
+                    {
+                        <p>Active</p>
+                    }
+                    else
+                    {
+                        <p>Not Active</p>
+                    }        
+                
+            </div>
+        </div>
+        @*using (Html.BeginForm("UserProfile", "UserAuthentication", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <p>
+                        <b>@Session["FirstName"]</b>
+                        <b>@Session["LastName"]</b>
+                    </p>
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
+            </ul>
+
+        }*@
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Register", "Home", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }
+
+</body>
+

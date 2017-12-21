@@ -1,0 +1,56 @@
+﻿@model SmartHealth.Model.Models.Patient
+
+@{
+    ViewBag.Title = "Patient Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #PatientNav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+        margin-top: 1%;
+       
+    }
+
+        #PatientNav ul li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            #PatientNav ul li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            #PatientNav ul li a:hover:not(.active) {
+                background-color: #555;
+                color: white;
+            }
+</style>
+<body>
+    <div class="col-md-2" id="PatientNav">
+        <ul>
+            <li style="background-color : #4CAF50">
+                @{
+                    var pp = Model.userAndRole.user.UserId;
+                }
+                @Html.ActionLink("Profile", "Index", "Patient", new { @UserId = pp }, null)
+            </li>
+            <li>@Html.ActionLink("Find Doctor", "FindDoctor", "Doctor")</li>
+
+            <li>@Html.ActionLink("Map", "", ""@*, new { status = Model.DoctorStatus}*@)</li>
+            <li>@Html.ActionLink("Recommendation", "", ""@*, new { status = Model.DoctorStatus}*@)</li>
+
+        </ul>
+    </div>
+    <div class="col-md-10">
+        @RenderBody()
+    </div>
+
+</body>
+

@@ -1,0 +1,84 @@
+﻿@model SmartHealth.Views.ViewModels.UserProfile
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+    @if (HttpContext.Current.Session["UserId"] != null && HttpContext.Current.Session["UserId"] != "")
+    {
+        using (Html.BeginForm("UserProfile", "Registration", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <p><b>@Session["FirstName"]</b>
+                    <b>@Session["LastName"]</b></p>
+                </li>
+                @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>*@
+            </ul>
+               
+        }
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Register", "Home", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }
+
+
+
+
+
+    @*<div class="container col-md-12">
+        <table id="example" class="table table-striped responsive-utilities jambo_table dataTable" aria-describedby="example_info">
+            <thead>
+                <tr class="headings">
+                   
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+
+                    <th>
+                        User Name
+                    </th>
+                    <th>
+                        User Type
+                    </th>
+
+                    <th class=" no-link last">
+                        <span class="nobr">Action</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <tr>
+                        
+                        <td class=" ">@Model.User.FirstName</td>
+                        <td class=" ">@Model.User.LastName</td>
+                        <td class=" ">@Model.User.UserName</td>
+                        <td class=" ">@Model.User.userType.UserTypeName</td>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", new { id = Model.User.Id }, new { @class = "fa fa-edit", @title = "Edit" }) |
+
+                            @Html.Label(" ", new { @class = "fa fa-file-text-o detailView", @title = "Details", @mytag = "LBRM/AuthorInfo/Details/" + @Model.User.Id }) |
+
+                            @Html.ActionLink(" ", "Delete", new { id = Model.User.Id }, new { @class = "fa fa-trash-o", @title = "Delete", @onclick = "return confirm('Are you sure you wish to delete this item?');" })
+
+                        </td>
+
+                    </tr>
+                
+
+            </tbody>
+        </table>
+
+</div>*@
+</body>
+

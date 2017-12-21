@@ -1,0 +1,10 @@
+﻿@model SmartHealth.Views.ViewModels.MessageViewModel
+
+<div>
+    @for (var items = 0; items <= Model.messageList.Count; items++)
+    {
+
+        <p>@Html.Raw(Model.messageList[items].MessageBody)</p>
+    }
+</div>
+

@@ -1,0 +1,40 @@
+﻿@model SmartHealth.Model.Models.Doctor
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("GetUserRole", "Doctor", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal form-label-left", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="container col-md-8 col-md-offset-2" id="registrationPage">
+            <h4>Registration</h4>
+            <hr />
+
+            <div class="form-group">
+                <div class="col-md-6">
+
+                    @Html.DropDownList("UserRoleId", null, "", new { @class = "form-control col-md-6 ddlErrorMsg", @id = "ddlusertype", @placeholder = "User Type", @type = "text", @maxlength = "40" })
+                    @Html.ValidationMessageFor(model => model.userAndRole.role.RoleName)
+                    @*@Html.DropDownListFor(z => z.RoleId, new SelectList(Model.userRole.RoleName, "Value", "Text", Model.RoleId), "-- Select Role --")*@
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-8 col-md-10">
+                    <input type="submit" value="Next" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

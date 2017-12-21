@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+
+namespace SmartHealth.Data.Infrastructure
+{
+    public class UnitOfWork : IUnitOfWork
+    {
+        private DbContext _dbContext;
+
+        public UnitOfWork(DbContext dbContext)
+        {
+            this._dbContext = dbContext;
+        }
+        public int Commit()
+        {
+            return _dbContext.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        public void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_dbContext != null)
+                {
+                    _dbContext.Dispose();
+                    _dbContext = null;
+                }
+            }
+        }
+    }
+}

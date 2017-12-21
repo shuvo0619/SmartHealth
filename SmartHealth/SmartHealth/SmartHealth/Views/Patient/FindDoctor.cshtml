@@ -1,0 +1,84 @@
+﻿@model PagedList.IPagedList<SmartHealth.Model.Models.Doctor>
+@using PagedList.Mvc;
+    @{
+        ViewBag.Title = "FindDoctor";
+        Layout = "~/Views/Patient/PatientLayout.cshtml";
+        int size = 10;
+
+        if (ViewBag.size != null)
+        {
+            size = ViewBag.size;
+        };
+        int Nopage = 1;
+        if (ViewBag.page != null)
+        {
+            Nopage = ViewBag.page;
+        };
+        int row = size * Nopage;
+        row = row - size;
+    }
+
+    <div class="container col-md-12">
+
+        <div class="col-md-12">
+            <table id="example" class="table table-striped responsive-utilities jambo_table dataTable" aria-describedby="example_info">
+                <thead>
+                    <tr class="headings">
+                        <th>
+                            Number
+                        </th>
+                        <th>
+                            Doctor Name
+                        </th>
+                        @*<th>
+                                Status
+                            </th>*@
+                        <th>
+                            Contact
+                        </th>
+                        @foreach (var item in Model.Select((x, i) => new { Data = x, Index = i }))
+                        {
+                            row++;
+
+                        <tr>
+                            <td>
+                                @row
+                            </td>
+                            <td>
+                                @item.Data.userAndRole.user.FirstName
+                                @item.Data.userAndRole.user.LastName
+                                <sub style="font-size : 11px; font-family : Verdana">
+                                    @Html.ActionLink("View Profile", "", "")
+                                </sub>
+                            </td>
+                            @*<td>
+                                    @if (item.Status == true)
+                                    {
+                                        <p>active</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Not Available</p>
+                                    }
+
+                                </td>*@
+                            <td>
+                                <a href="@Url.Action("Chat", "Message")">
+                                    <img src="~/Content/img/message.png" height="20" width="20" title="Message" id="message" />
+                                </a>
+                                <a href="http://localhost/fffff" target="_blank">
+                                    <img src="~/Content/img/video-chat.jpg" height="25" width="25" title="Video Call" />
+                                </a>
+                            </td>
+                        </tr>
+                        }
+                    </thead>
+                </table>
+
+
+            </div>
+
+            <div id="PostMessage"></div>
+
+        </div>
+

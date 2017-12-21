@@ -1,0 +1,45 @@
+﻿@model SmartHealth.Model.Models.Message
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Message</h4>
+        <hr />
+       @Html.HiddenFor(model => model.user.UserId)
+        @Html.DisplayFor(model => model.MessageBody)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.MessageBody, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MessageBody, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MessageBody, "", new { @class = "text-danger" })
+            </div>
+        </div>
+               
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>*@
+
+        <div id="receiveMessage">
+            @Html.DisplayFor(model => model.user.UserName)
+            @Html.DisplayFor(model => model.MessageBody)
+            @Html.DisplayFor(model => model.Date)
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#receiveMessage').hide();
+        var Id = $('#UserId').val();
+        var CurrentId = @Session["UserId"];
+        if(Id == CurrentId)
+        {
+            window.alert($('receiveMessage').show());
+        }
+    });
+</script>

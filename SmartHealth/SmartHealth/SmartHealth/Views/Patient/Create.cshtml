@@ -1,0 +1,140 @@
+﻿@model SmartHealth.Model.Models.Patient
+
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Create", "Patient", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal form-label-left", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="container col-md-8 col-md-offset-2" id="registrationPage">
+            <h4>Registration</h4>
+            <hr />
+            
+            @*@Html.HiddenFor(model => model.UserAndRoleId)*@
+            <div class="form-group">
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.userAndRole.user.FirstName, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "display_name", placeholder = "First Name *", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.userAndRole.user.FirstName)
+                </div>
+
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.userAndRole.user.LastName, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "display_name", placeholder = "Last Name *", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.userAndRole.user.LastName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.userAndRole.user.UserName, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "display_name", placeholder = "Username *", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.userAndRole.user.UserName)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.userAndRole.user.EmailId, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "Email_id", placeholder = "Email Id*", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.userAndRole.user.EmailId)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.userAndRole.user.Password, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "Password", placeholder = "Password *", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.userAndRole.user.Password)
+                </div>
+
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.userAndRole.user.ConfirmPassword, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "ConfirmPassword", placeholder = "Confirm Password *", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.userAndRole.user.ConfirmPassword)
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "Age", placeholder = "Age" } })
+                    @Html.ValidationMessageFor(model => model.Age)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "height", placeholder = "Height" } })
+                    @Html.ValidationMessageFor(model => model.Height)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "weight", placeholder = "Weight" } })
+                    @Html.ValidationMessageFor(model => model.Weight)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.BloodGroup, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "bloodGroup", placeholder = "Blood Group" } })
+                    @Html.ValidationMessageFor(model => model.BloodGroup)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.BloodPressure, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "bloodPressure", placeholder = "Blood Pressure" } })
+                    @Html.ValidationMessageFor(model => model.BloodPressure)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "address", placeholder = "Address" } })
+                    @Html.ValidationMessageFor(model => model.Address)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.userAndRole.RoleId, new { htmlAttributes = new { @class = "form-control col-md-6", @id = "Speciality", placeholder = "Enter your role id 2*", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.userAndRole.role.RoleName)
+                </div>
+            </div>
+          
+
+            <div class="form-group">
+                <div class="col-md-offset-8 col-md-10">
+                    <input type="submit" value="Registration" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+ </div>
+   
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $.ajax({
+                type: 'Post',
+                url: '@Url.Action("GetRole")',
+                dataType: 'json',
+                $.getJSON('@Url.Action("GetRole", "Doctor")', { RoleId: $(this).val() }, function (data) {
+                    $.each(data, function(index, item) {
+                        var option = $('<option></option>').val(item.ID).text(item.Name);
+
+                    })
+                })
+            });
+        });
+    </script>
+}

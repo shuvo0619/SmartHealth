@@ -1,0 +1,173 @@
+﻿@model PagedList.IPagedList<SmartHealth.Model.Models.Doctor>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int size = 10;
+
+    if (ViewBag.size != null)
+    {
+        size = ViewBag.size;
+    };
+    int Nopage = 1;
+    if (ViewBag.page != null)
+    {
+        Nopage = ViewBag.page;
+    };
+    int row = size * Nopage;
+    row = row - size;
+}
+
+
+<div class="container col-md-12">
+
+    <div class="col-md-12">
+        <table id="example" class="table table-striped responsive-utilities jambo_table dataTable" aria-describedby="example_info">
+            <thead>
+                <tr class="headings">
+                    <th>
+                        Number
+                    </th>
+                    <th>
+                        Doctor Name
+                    </th>
+                    @*<th>
+                        Status
+                    </th>*@
+                    <th>
+                        Contact
+                    </th>
+                    @foreach (var item in Model.Select((x, i) => new { Data = x, Index = i }))
+                    {
+                        row++;
+
+                    <tr>
+                        <td>
+                            @row
+                        </td>
+                        <td>
+                            @item.Data.userAndRole.user.FirstName
+                            @item.Data.userAndRole.user.LastName
+                            @{
+                        var DoctorId = item.Data.DoctorId;
+                        int id = Convert.ToInt32(DoctorId);
+                            }
+                            <sub style="font-size : 11px; font-family : Verdana">
+                                @*@Html.Label("View Profile", new { @title = "View", @mytag = "/Doctor/ViewProfile/" + @item.Data.DoctorId })*@
+                                @* @Html.ActionLink("View Profile", "ViewProfile", "Doctor", new { @id = id }, null)*@
+                                <a href="javascript:void(0);" class="anchorDetail" data-id="@item.Data.DoctorId">View Profile</a>
+                            </sub>
+                            <div id='myModal' class='modal'>
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div id='myModalContent'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        @*<td>
+                            @{
+                        var status = @Session["Status"];
+                            }
+                            @if (status.Equals(true))
+                            {
+                                <p>active</p>
+                            }
+                            else
+                            {
+                                <p>Not Available</p>
+                            }
+
+                        </td>*@
+                        <td>
+                            @{
+                        var UserId = item.Data.userAndRole.user.UserId;
+
+                            }
+                            <a href="@Url.Action("SendMessage", "Message", new { @UserId = UserId }, null)">
+                                <img src="~/Content/img/message.png" height="20" width="20" title="Message" id="message" />
+                            </a>
+                            @*<a href=@Url.Action("Video", "Home") target="_blank">
+                            <img src="~/Content/img/video-chat.jpg" height="25" width="25" title="Video Call" />
+                            </a>*@
+                            <a href="http://localhost/fffff" target="_blank">
+                                    <img src="~/Content/img/video-chat.jpg" height="25" width="25" title="Video Call" />
+                           </a>
+                        </td>
+                    </tr>
+                    }
+                </thead>
+            </table>
+
+
+        </div>
+
+        <div id="PostMessage"></div>
+
+    </div>
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#message").click(function () {
+                    var MemberID = $("#message").val();
+
+
+                    if (MemberID > 0) {
+                        $.ajax({
+                            type: 'Post',
+                            url: '@Url.Action("PostChat")',
+                            dataType: 'html',
+
+                            success: function (PostChat) {
+                                $("#PostMessage").html(PostChat);
+
+                            },
+                            error: function (ex) {
+                                alert('No message found');
+                            }
+                        });
+                    }
+
+                    return false;
+
+                });
+
+                var TeamDetailPostBackURL = '/Doctor/ViewProfile';
+                $(function () {
+                    $(".anchorDetail").click(function () {
+                        debugger;
+                        var $buttonClicked = $(this);
+                        var id = $buttonClicked.attr('data-id');
+                        var options = { "backdrop": "static", keyboard: true };
+                        $.ajax({
+                            type: "GET",
+                            url: TeamDetailPostBackURL,
+                            contentType: "application/json; charset=utf-8",
+                            data: { "Id": id },
+                            datatype: "json",
+                            success: function (data) {
+                                debugger;
+                                $('#myModalContent').html(data);
+                                $('#myModal').modal(options);
+                                $('#myModal').modal('show');
+
+                            },
+                            error: function () {
+                                alert("Dynamic content load failed.");
+                            }
+                        });
+                    });
+
+                    $("#closbtn").click(function () {
+                        $('#myModal').modal('hide');
+                    });
+                });
+            })
+        </script>
+    }
+

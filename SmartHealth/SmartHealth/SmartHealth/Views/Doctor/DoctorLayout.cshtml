@@ -1,0 +1,50 @@
+﻿@model SmartHealth.Model.Models.Doctor
+@{
+    ViewBag.Title = "DoctorLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #doctorNav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+        margin-top: 1%;
+        
+    }
+
+        #doctorNav ul li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            #doctorNav ul li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            #doctorNav ul li a:hover:not(.active) {
+                background-color: #555;
+                color: white;
+            }
+</style>
+<body>
+    <div class="col-md-2" id="doctorNav">
+        <ul>
+            <li style="background-color : #4CAF50">
+                @{
+                    var pp = Model.userAndRole.user.UserId;
+                }
+                @Html.ActionLink("Profile", "Index", "Doctor", new { @UserId = pp, @status = Model.userAndRole.user.Status }, null)
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-10">
+        @RenderBody()
+    </div>
+
+</body>
+

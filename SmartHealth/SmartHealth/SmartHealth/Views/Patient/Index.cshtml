@@ -1,0 +1,28 @@
+﻿@model SmartHealth.Model.Models.Patient
+
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+ 
+    <div class="container col-md-12">
+        <div class="">
+
+        </div>
+        <div class="col-md-6 col-md-offset-2" id="PatientProfile">
+            @Model.userAndRole.user.FirstName @Model.userAndRole.user.LastName </br>
+            @Model.userAndRole.user.UserName </br>
+            @Model.Age </br>
+            @Model.Height </br>
+            @Model.Weight </br>
+            <div class="navbar-right">
+                @Html.ActionLink(" ", "Edit", new { id = Model.PatientId }, new { @class = "fa fa-edit", @title = "Edit" }) |
+                @Html.Label(" ", new { @class = "fa fa-file-text-o detailView", @title = "Details", @mytag = "SmartHealth/Doctor/Details/" + @Model.PatientId }) |
+            </div>
+            
+        </div>
+    </div>
+</body>
+
