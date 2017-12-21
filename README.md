@@ -1,12 +1,14 @@
 # SmartHealth Project
 
 1. Pre-requisition environment setun to run this project
+
     i.    Visual studio 2013
     ii.   SQL server 2016
     iii.  Google chrome version 65.0.3298.4
     
 
 2. Download this project and run in visual studio 2013 and then do the following steps
+
      i.   Install required package from Nuget Manager
      ii.  Install signalR package
      iii. Enable migration from package on SmartHealth.Data project
@@ -19,6 +21,7 @@
  
 
 3. Run this project in your google chrome browser
+
     i.    Registration user as doctor and patient
     ii.   After authentication as patient, click on "Find Doctor" to get doctor list
     iii.  Select a doctor to send message
